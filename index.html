@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Favorite Person ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #16080d;
+    color: #f8e9e9;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+/* background decoration */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(128, 25, 48, .22), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(104, 18, 38, .2), transparent 30%);
+    z-index: -1;
+}
+
+.container {
+    width: min(100%, 720px);
+    margin: auto;
+    padding: 35px 22px 80px;
+}
+
+/* opening */
+.hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.small {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #c9959f;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 15vw, 105px);
+    line-height: .78;
+    font-weight: 500;
+    color: #f9eeee;
+}
+
+.hero h1 span {
+    color: #a94a61;
+    font-style: italic;
+}
+
+.hero p {
+    margin-top: 30px;
+    color: #cdb1b6;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.heart {
+    margin: 35px auto 0;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #743242;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b96778;
+    font-size: 18px;
+}
+
+/* divider */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0 55px;
+    color: #81505a;
+    font-size: 12px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    height: 1px;
+    background: #43202a;
+    flex: 1;
+}
+
+/* date */
+.date {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.date .number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: #ead7da;
+}
+
+.date .month {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #a86a76;
+}
+
+/* photo */
+.photo-wrap {
+    margin: 30px 0 65px;
+    position: relative;
+}
+
+.photo {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
+    filter: saturate(.88);
+    border: 1px solid #63303d;
+    box-shadow: 0 20px 55px rgba(0,0,0,.45);
+}
+
+.photo-label {
+    position: absolute;
+    bottom: -17px;
+    left: 22px;
+    background: #721f37;
+    padding: 8px 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transform: rotate(-2deg);
+    box-shadow: 0 7px 20px rgba(0,0,0,.3);
+}
+
+/* text section */
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    line-height: 1;
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: #f4e4e6;
+}
+
+.section-title em {
+    color: #a74b61;
+}
+
+.letter {
+    color: #cdb9bd;
+    font-size: 14px;
+    line-height: 2;
+    font-weight: 300;
+}
+
+.letter p {
+    margin-bottom: 22px;
+}
+
+.highlight {
+    color: #f0d9dd;
+}
+
+/* quote */
+.quote {
+    margin: 65px 0;
+    padding: 35px 25px;
+    text-align: center;
+    border-top: 1px solid #4c2630;
+    border-bottom: 1px solid #4c2630;
+}
+
+.quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 31px;
+    line-height: 1.25;
+    font-style: italic;
+    color: #eedfe1;
+}
+
+.quote small {
+    display: block;
+    margin-top: 17px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #98606c;
+}
+
+/* second photo */
+.second-photo {
+    margin: 65px 0;
+}
+
+.second-photo .caption {
+    margin-top: 17px;
+    text-align: right;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #a96b76;
+}
+
+/* love section */
+.love-section {
+    text-align: center;
+    padding: 80px 5px 30px;
+}
+
+.love-section .tiny {
+    color: #a56a75;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 9px;
+    margin-bottom: 20px;
+}
+
+.love-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 13vw, 80px);
+    font-weight: 500;
+    line-height: .9;
+    color: #f5e8e9;
+}
+
+.love-section h2 span {
+    color: #9d3d55;
+    font-style: italic;
+}
+
+.love-text {
+    margin: 30px auto 0;
+    max-width: 500px;
+    color: #c4aeb3;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* love list */
+.love-list {
+    margin: 55px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.love-item {
+    border: 1px solid #4b2730;
+    background: rgba(84, 23, 38, .18);
+    padding: 15px 20px;
+    border-radius: 2px;
+    text-align: left;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    color: #e6d4d7;
+    transition: .3s;
+}
+
+.love-item:hover {
+    background: rgba(123, 34, 55, .25);
+    transform: translateX(5px);
+}
+
+.love-item span {
+    color: #9e4057;
+    margin-right: 10px;
+}
+
+/* ending */
+.ending {
+    text-align: center;
+    padding: 90px 0 30px;
+}
+
+.ending .line {
+    width: 45px;
+    height: 1px;
+    background: #713342;
+    margin: 0 auto 30px;
+}
+
+.ending h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 500;
+    color: #f2e1e4;
+}
+
+.ending h3 span {
+    color: #a03f57;
+}
+
+.ending p {
+    margin-top: 18px;
+    color: #a98c93;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.footer {
+    margin-top: 80px;
+    text-align: center;
+    color: #67434b;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .hero {
+        min-height: 85vh;
+    }
+
+    .letter {
+        font-size: 13.5px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- OPENING -->
+    <section class="hero">
+
+        <div class="small">a little something for you</div>
+
+        <h1>
+            happy<br>
+            <span>boyfriend</span><br>
+            day.
+        </h1>
+
+        <p>for the boy who makes my world feel softer ♡</p>
+
+        <div class="heart">♡</div>
+
+    </section>
+
+
+    <div class="divider">03 · 10 · 2026</div>
+
+
+    <!-- DATE -->
+    <section class="date">
+        <div class="number">03</div>
+        <div class="month">october · boyfriend day</div>
+    </section>
+
+
+    <!-- PHOTO 1 -->
+    <div class="photo-wrap">
+
+        <img
+            class="photo"
+            src="https://i.ibb.co.com/jPYmHzdF/IMG-20261001-085707-572.jpg"
+            alt="our first memory"
+        >
+
+        <div class="photo-label">one of my favorite memories ♡</div>
+
+    </div>
+
+
+    <!-- LETTER -->
+    <section>
+
+        <div class="small">dear you,</div>
+
+        <h2 class="section-title">
+            You are my<br>
+            <em>favorite person.</em>
+        </h2>
+
+        <div class="letter">
+
+            <p>
+                Happy Boyfriend Day, sayang. ♡
+                I don't really know how to put everything I feel into words,
+                but today I just want you to know how much you mean to me.
+            </p>
+
+            <p>
+                Thank you for being someone I can laugh with, talk to,
+                annoy, and somehow still love even when you're being
+                the most annoying person ever.
+                <span class="highlight">You make ordinary days feel special.</span>
+            </p>
+
+            <p>
+                Aku mungkin nggak selalu bisa bilang semuanya secara langsung,
+                tapi aku harap kamu tahu kalau keberadaan kamu berarti banget
+                buat aku. Thank you for staying, for listening,
+                for understanding me, and for being you.
+            </p>
+
+            <p>
+                Sometimes I look at you and think,
+                "how did I get so lucky?"
+                Because honestly, having you in my life is one of those
+                little things that I never want to take for granted.
+            </p>
+
+            <p>
+                I love the little things about you.
+                The way you talk, the way you make me laugh,
+                the random things you do, bahkan hal-hal kecil
+                yang mungkin menurut kamu biasa aja.
+                Somehow, those are the things that make you,
+                <span class="highlight">you.</span>
+            </p>
+
+            <p>
+                So if someday you feel like you're not enough,
+                please remember this:
+                there is someone here who sees you,
+                appreciates you, and loves you more than you probably realize.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUOTE -->
+    <div class="quote">
+
+        <div class="quote-text">
+            "In a world full of people,
+            somehow my heart still chooses you."
+        </div>
+
+        <small>and it always will</small>
+
+    </div>
+
+
+    <!-- PHOTO 2 -->
+    <div class="second-photo">
+
+        <img
+            class="photo"
+            src="https://i.ibb.co.com/Dfg5s6jb/IMG-20261001-085705-638.jpg"
+            alt="our favorite memory"
+        >
+
+        <div class="caption">
+            another little piece of us.
+        </div>
+
+    </div>
+
+
+    <!-- MORE LETTER -->
+    <section>
+
+        <div class="small">and one more thing...</div>
+
+        <h2 class="section-title">
+            I hope you know<br>
+            <em>how loved you are.</em>
+        </h2>
+
+        <div class="letter">
+
+            <p>
+                I hope you know that you don't have to be perfect for me.
+                You don't have to have everything figured out.
+                You can simply be yourself,
+                and I'll still be here loving you.
+            </p>
+
+            <p>
+                Kalau dunia lagi berat, come to me.
+                Kalau kamu lagi happy, tell me everything.
+                Kalau kamu lagi capek, istirahat.
+                And if you ever forget how special you are,
+                let me remind you.
+            </p>
+
+            <p>
+                I want to keep making memories with you,
+                keep laughing at stupid things,
+                keep having random conversations,
+                keep annoying each other,
+                and keep choosing each other.
+            </p>
+
+            <p>
+                Maybe I can't promise that every day will be perfect,
+                but I can promise that my love for you is real.
+                And as long as you let me,
+                <span class="highlight">I'll keep choosing you.</span>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- LOVE LIST -->
+    <section class="love-section">
+
+        <div class="tiny">just so you remember</div>
+
+        <h2>
+            I love<br>
+            <span>you.</span>
+        </h2>
+
+        <div class="love-text">
+            Not just today. Not just because it's Boyfriend Day.
+            I love you in the little moments, the loud moments,
+            the boring moments, and every moment in between.
+        </div>
+
+
+        <div class="love-list">
+
+            <div class="love-item">
+                <span>01.</span> I love you always.
+            </div>
+
+            <div class="love-item">
+                <span>02.</span> I love you at all times.
+            </div>
+
+            <div class="love-item">
+                <span>03.</span> I love you every day.
+            </div>
+
+            <div class="love-item">
+                <span>04.</span> I love you every time.
+            </div>
+
+            <div class="love-item">
+                <span>05.</span> I love you endlessly.
+            </div>
+
+            <div class="love-item">
+                <span>06.</span> I love you constantly.
+            </div>
+
+            <div class="love-item">
+                <span>07.</span> I love you, no matter what.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ENDING -->
+    <section class="ending">
+
+        <div class="line"></div>
+
+        <h3>
+            I love you<br>
+            <span>so much.</span>
+        </h3>
+
+        <p>
+            today · tomorrow · always ♡
+        </p>
+
+    </section>
+
+
+    <div class="footer">
+        made with love, just for you
+    </div>
+
+</div>
+
+</body>
+</html>
